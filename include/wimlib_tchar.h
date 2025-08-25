@@ -51,6 +51,13 @@ typedef wchar_t tchar;
 #  define tfopen	_wfopen
 #  define topen		_wopen
 #  define tstat		_wstati64
+#if (defined(__MINGW32__) || defined(__MINGW64__)) && defined(__GNUC__) && !defined(__LINUX__)
+	#ifdef _WIN64
+        #define tstat(filename, st_ptr) _wstat64(filename, (struct _stat64 *)(st_ptr))
+    #else
+        #define tstat(filename, st_ptr) _wstat32(filename, (struct _stat32 *)(st_ptr))
+    #endif
+#endif
 #  define tstrtol	wcstol
 #  define tstrtod	wcstod
 #  define tstrtoul	wcstoul
