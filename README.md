@@ -1,3 +1,8 @@
+Wimlib modified by [@kaliiiiiiiiiii](https://github.com/kaliiiiiiiiii).
+- added support for building with `(defined(__MINGW32__) || defined(__MINGW64__)) && defined(__GNUC__) && !defined(__LINUX__)`
+
+See [all changes](https://github.com/kaliiiiiiiiii/wimlib/compare/e59d1de0f439d91065df7c47f647f546728e6a24...master).
+
 # Introduction
 
 This is wimlib version 1.14.4 (February 2024).  wimlib is a C library for
